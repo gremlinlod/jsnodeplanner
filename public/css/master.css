@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+
+    margin: 0 auto;
+    width: 600px;
+    background: grey;
+}
+h1 {
+    text-align: center;
+}
+#inputTodo {
+    width: 580px;
+    margin: 0 10px;
+    border: none;
+    background: lightpink;
+}
+
+#listTodo {
+    width: 580px;
+    margin: 5px 10px;
+    border: none;
+    padding: 0;
+    list-style: none;
+    background: lightblue;
+    text-align: center;
+}
+
+#buttonUpdate{
+    width: 100px;
+    height: 30px;
+    color: darkblue;
+    background: lightgreen;
+
+}
