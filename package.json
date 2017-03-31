@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/nodemon app.js",
-    "debug": "./node_modules/.bin/nodemon --debug app.js"
+    "debug": "./node_modules/.bin/nodemon --debug app.js",
+    "initdb": "node ./utils/initdb.js"
   },
   "devDependencies": {
     "babel": "^6.23.0",
