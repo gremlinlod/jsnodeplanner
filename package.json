@@ -17,7 +17,6 @@
     "initdb": "node ./utils/initdb.js"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
     "faker": "^4.1.0",
     "nodemon": "^1.11.0"
   }

@@ -10,8 +10,8 @@ for (let i = 0; i < 20; i++) {
   data.push(text);
 }
 
-router.get('/', (req,res) => {
-  res.render(`index`,{data:data});
+router.get('/', (req, res) => {
+  res.render(`index`, {data: data});
 });
 
 module.exports = router;

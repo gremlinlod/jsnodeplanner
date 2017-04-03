@@ -1,10 +1,38 @@
 const mongoose = require('mongoose');
+const faker = require('faker');
 
-//todo connect to db
+let database = 'test';
+mongoose.connect(`mongodb://localhost/${database}`);
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection.once('open', () => console.log('connected to database'));
 
-//todo create collection
+// mongoose.connection.db.dropDatabase();
 
-//todo input some data
+const TodoSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  isDone: {
+    type: Boolean,
+    default: false
+  }
+});
 
-//return result
-console.log('initdb done');
+const Todo = mongoose.model('Todo', TodoSchema);
+
+Todo.remove({}, (err) => console.log('collection removed'))
+    .then(() => {
+      for (let i = 0; i < 5; i++) {
+        let text = faker.hacker.phrase();
+        Todo.create({title: text}, (err) => {
+          if (err) console.log(err);
+        });
+      }
+    })
+    .then(Todo.find((err, obj) => {
+      if (err) return console.error(err);
+      console.log(obj);
+    }))
+    .then(() => mongoose.disconnect(() => console.log('disconnected')));
+

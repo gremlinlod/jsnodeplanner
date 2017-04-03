@@ -9,9 +9,11 @@ html, body {
     width: 600px;
     background: grey;
 }
+
 h1 {
     text-align: center;
 }
+
 #inputTodo {
     width: 580px;
     margin: 0 10px;
@@ -29,7 +31,7 @@ h1 {
     text-align: center;
 }
 
-#buttonUpdate{
+#buttonUpdate {
     width: 100px;
     height: 30px;
     color: darkblue;
