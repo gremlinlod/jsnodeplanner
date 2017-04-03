@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const faker = require('faker')
-//mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise;
+// assert.equal(query.exec().constructor, global.Promise);
 
 let database = 'test'
 mongoose.connect(`mongodb://localhost/${database}`)
