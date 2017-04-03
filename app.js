@@ -1,48 +1,48 @@
-const express = require('express');
-const app = express();
-const logger = require('morgan');
-const path = require('path');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const express = require('express')
+const app = express()
+const logger = require('morgan')
+const path = require('path')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 // db
 
-let database = 'test';
+let database = 'test'
 
 // todo Move database name to config file
 
-mongoose.connect(`mongodb://localhost/${database}`);
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.once('open', () => console.log('connected to database'));
+mongoose.connect(`mongodb://localhost/${database}`)
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'))
+mongoose.connection.once('open', () => console.log('connected to database'))
 
 // routes
 
-const index = require('./routes/index');
-const api = require('./routes/api');
+const index = require('./routes/index')
+const api = require('./routes/api')
 
 // set view engine
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
 
 // middlewares
 
-app.use(logger('dev'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // requests
 
-app.use('/', index);
-app.use('/api', api);
+app.use('/', index)
+app.use('/api', api)
 
 // cath 404 error
 
 app.use((req, res, next) => {
-  let err = new Error('Not Found');
-  err.status = 404;
+  let err = new Error('Not Found')
+  err.status = 404
   next(err)
-});
+})
 
 // error handler
 // app.use((err, req, res, next) => {
@@ -57,6 +57,6 @@ app.use((req, res, next) => {
 // });
 
 app.listen(3000, function (err) {
-  if (err) console.error(err);
+  if (err) console.error(err)
   else console.log('Listening on port 3000')
-});
+})
