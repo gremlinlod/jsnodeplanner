@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/master.css">
-  <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/master.css">
+    <title></title>
 </head>
 <body>
 <div class="container">
-  <h1>App index page</h1>
-  <input type="text" id="inputTodo">
-  <div>
-    <ul id="listTodos">
-      <% data.forEach(function(element){ %>
-      <li><%= element %></li>
-      <% }); %>
-       <li>some text</li>
-    </ul>
-  </div>
-  <button id="buttonUpdate">load all</button>
+    <h1>App index page</h1>
+    <input type="text" id="inputTodo" placeholder="Добавить задачу">
+    <div>
+        <ul id="listTodos">
+            <li>some text</li>
+            <li>some text</li>
+            <li>some text</li>
+        </ul>
+    </div>
+    <button id="buttonUpdate">load all</button>
 </div>
-
-
 
 
 <script src="js/script.js"></script>

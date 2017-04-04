@@ -12,8 +12,9 @@ let database = 'test'
 // todo Move database name to config file
 
 mongoose.connect(`mongodb://localhost/${database}`)
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'))
-mongoose.connection.once('open', () => console.log('connected to database'))
+let db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', () => console.log('connected to database'))
 
 // routes
 

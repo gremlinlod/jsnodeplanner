@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express')
 const router = express.Router()
 
@@ -72,8 +73,11 @@ router.get('/:id/remove', (req, res) => {
   res.redirect('/api')
 })
 
-// Добавить удаление выполненных задач
-
+// todo Добавить удаление выполненных задач
 // deleteMany()
+
+router.all('*', (req, res) => {
+  res.send(`404 not found`)
+})
 
 module.exports = router
